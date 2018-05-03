@@ -87,14 +87,15 @@ def bet_for_inBetween(money):
     bet = int(bet)
     return bet
 
+
 def bet_for_guessingGame(money):
 
     bet = raw_input('place your bet: $')
     if bet.isdigit():
         bet = int(bet)
 
-        while bet == 0:
-            print 'please bet something...'
+        while bet < 5:
+            print 'the minimum bet is $5...'
             bet = raw_input('place your bet: $')
             if bet.isdigit():
                 bet = int(bet)
@@ -106,11 +107,26 @@ def bet_for_guessingGame(money):
             bet = raw_input('place your bet: $')
             if bet.isdigit():
                 bet = int(bet)
-                while bet == 0:
-                    print 'please bet something...'
+                while bet < 5:
+                    print 'the minimum bet is $5...'
                     bet = raw_input('place your bet: $')
                     if bet.isdigit():
                         bet = int(bet)
+
+    else:
+        while bet > money:
+            print 'You do not have enough money'
+            currBalance = 'Your current balance is: $'+str(money)
+            print currBalance
+            bet = raw_input('place your bet: $')
+            if bet.isdigit():
+                bet = int(bet)
+                while bet < 5:
+                    print 'the minimum bet is $5...'
+                    bet = raw_input('place your bet: $')
+                    if bet.isdigit():
+                        bet = int(bet)
+
     bet = int(bet)
     return bet
 
